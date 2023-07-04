@@ -8,16 +8,17 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-
     this.state = { latitude: null, longitude: null, hemisphere: null, errormsg: ''}
+  }
 
+  componentDidMount() {
     window.navigator.geolocation.getCurrentPosition(
-        (position) => {
-            this.setState({latitude: position.coords.latitude, longitude: position.coords.longitude});
-        },
-        (error) => {
-            this.setState({errormsg: error.message});
-        }
+      (position) => {
+          this.setState({latitude: position.coords.latitude, longitude: position.coords.longitude});
+      },
+      (error) => {
+          this.setState({errormsg: error.message});
+      }
     );
   }
 
@@ -29,11 +30,12 @@ class App extends React.Component {
     if (!this.state.errormsg && this.state.latitude && this.state.longitude) {
         return (
           //-74.006, 40.7128
+          
+        <div>
           <MapChart latitude={this.state.latitude} longitude={this.state.longitude} />
-        // <div>
-        //   <h1>{this.state.latitude}</h1>
-        //   <h1>{this.state.longitude}</h1>
-        // </div>
+          <h4>{this.state.latitude}</h4>
+          <h4>{this.state.longitude}</h4>
+        </div>
         )
     }
     else {
