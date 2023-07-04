@@ -1,5 +1,4 @@
 import React from 'react';
-import { Marker } from "react-simple-maps";
 import './App.css';
 import MapChart from './Map';
 
@@ -31,7 +30,7 @@ class App extends React.Component {
         return (
           //-74.006, 40.7128
           
-        <div>
+        <div className="page">
           <MapChart latitude={this.state.latitude} longitude={this.state.longitude} />
           <h4>{this.state.latitude}</h4>
           <h4>{this.state.longitude}</h4>
