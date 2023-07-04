@@ -5,7 +5,7 @@ const geoUrl =
   "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json"
 
   
-function MapChart(props) {
+const MapChart = (props) =>{
   return (
     <ComposableMap>
       <Geographies geography={geoUrl}>
